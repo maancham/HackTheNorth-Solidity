@@ -7,6 +7,7 @@ contract UrlEmitter {
     uint256 public currentIndex;
 
     event UrlEmitted(address indexed sender, string url);
+    event UrlListEmitted(string url);
     event UrlAppended(address indexed sender, string appendedUrl);
 
     constructor(string[] memory initialUrls) {
@@ -28,5 +29,11 @@ contract UrlEmitter {
         require(bytes(newUrl).length > 0, "URL must not be empty");
         urls.push(newUrl);
         emit UrlAppended(msg.sender, newUrl);
+    }
+
+    function emitAllUrls() public {
+        for (uint256 i = 0; i < urls.length; i++) {
+            emit UrlListEmitted(urls[i]);
+        }
     }
 }
