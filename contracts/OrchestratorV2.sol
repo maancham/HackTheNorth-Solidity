@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.21;
 
-contract UrlEmitter {
+contract UrlEmitterV2 {
     string[] public urls;
 
     mapping(string => uint256) public reputationMap;
